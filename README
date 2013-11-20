@@ -1,0 +1,16 @@
+This is an example of the the Keynote API in Perl.
+
+Currently the code requires a fixed API Key. If you don't know what this is... go to api.keynote.com for additional details.
+
+The code will accept as input a list of slots to define the scope of the data extract. The i/p file must be slotid's 
+associated with the fixed Key and must be entered one slot per line. If NO slot input is provided, all slots associated
+with the API Key will be sampled.
+
+The code uses XML::SIMPLE to parse the XML output of the API query. In addition, the code makes use of LWP::SIMPLE
+for HTTP communication w/api.keynote.com. See inline for additional Perl extensions.
+
+The main focus of this example is to allow a Keynote customer to define Availability metrics and track specific errors 
+externally of the Keynote reporting tools. The primary output is a CSV file with specific error codes as reported
+by the Keynote monitoring infrastructure. This module is expected to run hourly (as the default extract period 
+during development was 3600 seconds).
+
